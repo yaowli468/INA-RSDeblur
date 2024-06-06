@@ -1,5 +1,5 @@
 <!-- Title -->
-### Implicit Neural Attention for Removing Blur in Remote Sensing Image
+## INA-RSDeblur: Implicit Neural Attention for Removing Blur in Remote Sensing Image
 ### Note: test.py and train_liif.py will be published upon acceptance of the paper
 
 ![image text](https://github.com/yaowli468/INA-RSDeblur/blob/main/IMG/Framework.png)
