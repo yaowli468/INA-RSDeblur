@@ -1,6 +1,9 @@
 <!-- Title -->
 ### Implicit Neural Attention for Removing Blur in Remote Sensing Image
 ### Note: test.py and train_liif.py will be published upon acceptance of the paper
+
+![image text](https://github.com/yaowli468/INA-RSDeblur/blob/main/IMG/Framework.png)
+
  
 ## Dependencies
 * Linux(Tested on Ubuntu 18.04) 
@@ -15,7 +18,7 @@
 ### Download
 * Pretrained model can be downloaded from [HERE](https://pan.baidu.com/s/1KNWp0jc2XlO2pUMVI7ra7Q)(c7ui), please put them to './save/_train_edsr-baseline-liif/'
 
-## Testing
+### Testing
 1. Run the following commands to test.
     ```sh
     python test.py --config ./configs/test/test-blur.yaml --model ./save/_train_edsr-baseline-liif/epoch-best.pt --gpu 0
