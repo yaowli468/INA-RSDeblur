@@ -1,0 +1,16 @@
+test_dataset:
+  dataset:
+    name: paired-image-folders
+    args:
+      root_path_1: /root/autodl-tmp/liif-main/Blur_AID_Datasets/test/blur
+      root_path_2: /root/autodl-tmp/liif-main/Blur_AID_Datasets/test/target
+  wrapper:
+    name: sr-implicit-paired
+    args: {}
+  batch_size: 1
+eval_type: Test
+eval_bsize: 30000
+
+data_norm:
+  inp: {sub: [0.5], div: [0.5]}
+  gt: {sub: [0.5], div: [0.5]}

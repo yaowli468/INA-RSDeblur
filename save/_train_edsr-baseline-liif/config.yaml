@@ -1,0 +1,69 @@
+train_dataset:
+  dataset:
+    name: image-folder
+    args:
+      root_path: /root/autodl-tmp/liif-main/Blur_AID_Datasets/Train1
+      repeat: 20
+      cache: in_memory
+  wrapper:
+    name: sr-implicit-downsampled
+    args:
+      inp_size: 48
+      scale_max: 4
+      augment: true
+      sample_q: None
+  batch_size: 10
+val_dataset:
+  dataset:
+    name: paired-image-folders
+    args:
+      root_path_1: /root/autodl-tmp/liif-main/Blur_AID_Datasets/test1/blur
+      root_path_2: /root/autodl-tmp/liif-main/Blur_AID_Datasets/test1/target
+  wrapper:
+    name: sr-implicit-paired
+    args: {}
+  batch_size: 1
+eval_type: Value
+eval_bsize: None
+data_norm:
+  inp:
+    sub:
+    - 0.5
+    div:
+    - 0.5
+  gt:
+    sub:
+    - 0.5
+    div:
+    - 0.5
+model:
+  name: liif
+  args:
+    encoder_spec:
+      name: rdn
+      args:
+        no_upsampling: true
+    imnet_spec:
+      name: mlp
+      args:
+        out_dim: 3
+        hidden_list:
+        - 256
+        - 256
+        - 256
+        - 256
+        - 256
+optimizer:
+  name: adam
+  args:
+    lr: 0.0001
+epoch_max: 200
+multi_step_lr:
+  milestones:
+  - 40
+  - 80
+  - 120
+  - 160
+  gamma: 0.5
+epoch_val: 10
+epoch_save: 10
